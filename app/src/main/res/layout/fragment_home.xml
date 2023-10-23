@@ -95,8 +95,9 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="380dp"
-        android:layout_height="361dp"
+        android:id="@+id/recyclerMenuPopuler"
+        android:layout_width="407dp"
+        android:layout_height="362dp"
         android:layout_marginTop="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

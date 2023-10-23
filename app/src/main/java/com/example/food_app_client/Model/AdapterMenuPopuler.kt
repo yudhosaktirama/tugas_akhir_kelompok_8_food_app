@@ -17,8 +17,8 @@ class AdapterMenuPopuler(val list: List<Menu>,val konteks: Context) : RecyclerVi
     class MenuViewHolder(row: View): RecyclerView.ViewHolder(row){
         val namaMakanan = row.findViewById<TextView>(R.id.judulMakanan)
         val iconMakanan = row.findViewById<ImageView>(R.id.iconMakanan)
-        val btnDetail = row.findViewById<Button>(R.id.btnDetail)
-        val btnAdd = row.findViewById<Button>(R.id.btnAdd)
+        val btnDetail = row.findViewById<ImageView>(R.id.btnDetail)
+        val btnAdd = row.findViewById<ImageView>(R.id.btnAdd)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
