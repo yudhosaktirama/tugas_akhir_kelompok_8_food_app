@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="403dp"
+        android:layout_height="98dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dasarreyclye" />
+
+    <ImageView
+        android:id="@+id/iconMakanan"
+        android:layout_width="73dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+        app:layout_constraintStart_toStartOf="@+id/imageView13"
+        app:layout_constraintTop_toTopOf="@+id/imageView13"
+        app:srcCompat="@drawable/makanan" />
+
+    <TextView
+        android:id="@+id/judulMakanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Nasi Goreng"
+        app:layout_constraintStart_toEndOf="@+id/iconMakanan"
+        app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+        app:layout_constraintStart_toStartOf="@+id/judulMakanan"
+        app:layout_constraintTop_toBottomOf="@+id/judulMakanan"
+        app:layout_constraintVertical_bias="0.292"
+        app:srcCompat="@drawable/bintang" />
+
+    <ImageView
+        android:id="@+id/btnDetail"
+        android:layout_width="88dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toTopOf="@+id/imageView13"
+        app:layout_constraintVertical_bias="0.523"
+        app:srcCompat="@drawable/buttonlayer" />
+
+    <ImageView
+        android:id="@+id/btnAdd"
+        android:layout_width="88dp"
+        android:layout_height="51dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDetail"
+        app:layout_constraintEnd_toEndOf="@+id/imageView13"
+        app:layout_constraintHorizontal_bias="0.675"
+        app:layout_constraintStart_toEndOf="@+id/btnDetail"
+        app:layout_constraintTop_toTopOf="@+id/btnDetail"
+        app:layout_constraintVertical_bias="0.444"
+        app:srcCompat="@drawable/buttonlayer" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detail"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDetail"
+        app:layout_constraintEnd_toEndOf="@+id/btnDetail"
+        app:layout_constraintStart_toStartOf="@+id/btnDetail"
+        app:layout_constraintTop_toTopOf="@+id/btnDetail" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/btnAdd"
+        app:layout_constraintEnd_toEndOf="@+id/btnAdd"
+        app:layout_constraintStart_toStartOf="@+id/btnAdd"
+        app:layout_constraintTop_toTopOf="@+id/btnAdd" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
