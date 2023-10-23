@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeid"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/kategoriid"
+        android:icon="@drawable/baseline_category_24"
+        android:title="Kategori" />
+    <item
+        android:id="@+id/keranjangid"
+        android:icon="@drawable/baseline_shopping_cart_24"
+        android:title="Keranjang" />
+    <item
+        android:id="@+id/profileid"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Profile" />
+</menu>
