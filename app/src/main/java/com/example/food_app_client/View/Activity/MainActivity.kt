@@ -1,4 +1,4 @@
-package com.example.food_app_client.View
+package com.example.food_app_client.View.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.profileid -> pindahFragment(profileFragment)
 
                 else -> {
-                    val gagal= Intent(this,MainActivity::class.java)
+                    val gagal= Intent(this, MainActivity::class.java)
                     startActivity(gagal)
                 }
 
