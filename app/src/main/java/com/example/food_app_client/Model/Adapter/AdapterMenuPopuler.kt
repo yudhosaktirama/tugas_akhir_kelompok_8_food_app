@@ -1,13 +1,11 @@
-package com.example.food_app_client.Model
+package com.example.food_app_client.Model.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.MenuAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.food_app_client.Model.ModelClass.Menu
 import com.example.food_app_client.R

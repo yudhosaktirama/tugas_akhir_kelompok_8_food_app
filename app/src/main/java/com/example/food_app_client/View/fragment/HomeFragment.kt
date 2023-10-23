@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.food_app_client.Model.AdapterMenuPopuler
+import com.example.food_app_client.Model.Adapter.AdapterMenuPopuler
 import com.example.food_app_client.Model.ListLokal.listmakanan
 import com.example.food_app_client.R
 
