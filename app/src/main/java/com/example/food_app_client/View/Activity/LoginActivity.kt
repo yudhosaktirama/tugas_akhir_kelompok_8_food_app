@@ -3,33 +3,25 @@ package com.example.food_app_client.View.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import com.example.food_app_client.R
 
-class LoginActivity : AppCompatActivity(), View.OnClickListener {
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val btnLogin: ImageView = findViewById(R.id.ivLogin)
-        val btnReg: ImageView = findViewById(R.id.ivregister)
+        val ivRegister = findViewById<ImageView>(R.id.ivregister)
+        val ivLogin = findViewById<ImageView>(R.id.ivLogin)
 
-        btnLogin.setOnClickListener(this)
-        btnReg.setOnClickListener(this)
+        ivRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 
-    }
-
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.ivregister -> {
-                val intentRegkeLog = Intent(this@LoginActivity, RegisterActivity::class.java)
-                startActivity(intentRegkeLog)
-            }
-            R.id.ivLogin -> {
-                val intentKemkeLog = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intentKemkeLog)
-            }
+        ivLogin.setOnClickListener {
+            val intent = Intent(this, UserActivity::class.java)
+            startActivity(intent)
         }
     }
 }
