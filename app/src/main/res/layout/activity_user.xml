@@ -12,8 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="Pengisian Informasi User"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,21 +22,23 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="352dp"
-        android:layout_height="248dp"
+        android:layout_width="311dp"
+        android:layout_height="245dp"
         android:src="@drawable/usercontainer"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.161" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="58dp"
-        android:layout_height="47dp"
+        android:layout_width="77dp"
+        android:layout_height="46dp"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:text="Nama :"
+        android:text="Nama       :"
+        android:textAlignment="viewStart"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
@@ -48,17 +51,17 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="68dp"
         android:src="@drawable/garis"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="214dp"
-        android:layout_height="48dp"
+        android:layout_width="206dp"
+        android:layout_height="46dp"
         android:layout_marginEnd="25dp"
         android:backgroundTint="@color/white"
         android:ems="10"
@@ -69,24 +72,26 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.961"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="62dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="76dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="Alamat  : "
+        android:textAlignment="viewStart"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="207dp"
+        android:layout_height="43dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
@@ -97,19 +102,21 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="62dp"
-        android:layout_height="45dp"
+        android:layout_width="75dp"
+        android:layout_height="40dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:text="No HP :"
+        android:text="No HP       :"
+        android:textAlignment="viewStart"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
         android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="211dp"
+        android:layout_height="40dp"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
@@ -124,8 +131,10 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:src="@drawable/garis"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
@@ -133,8 +142,10 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:src="@drawable/garis"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
 
