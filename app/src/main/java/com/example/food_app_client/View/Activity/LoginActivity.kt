@@ -42,14 +42,4 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun validasi(){
-        if (etEmail.text.isEmpty() ){
-            etEmail.error = "Silahkan Masukkan Email"
-            etEmail.requestFocus()
-
-        }else if (etPassword.text.isEmpty()){
-            etPassword.error = "Silahkan Masukkan Password"
-            etPassword.requestFocus()
-        }
-    }
 }
