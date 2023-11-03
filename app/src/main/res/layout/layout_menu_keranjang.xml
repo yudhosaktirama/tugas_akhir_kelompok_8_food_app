@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="366dp"
+        android:layout_height="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/dasarreyclye" />
+
+    <ImageView
+        android:id="@+id/ivMakanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="@+id/imageView12"
+        app:srcCompat="@drawable/makanan" />
+
+    <TextView
+        android:id="@+id/tvNamaMakanan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="90dp"
+        android:text="Nasi Uduk"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
+
+    <TextView
+        android:id="@+id/tvHarga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_marginStart="270dp"
+        android:text="Rp 6.000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
+
+    <TextView
+        android:id="@+id/tvJumlah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="120dp"
+        android:text="2"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imageView12"
+        app:layout_constraintTop_toTopOf="@+id/imageView12" />
+
+    <ImageView
+        android:id="@+id/ivMinus"
+        android:layout_width="21dp"
+        android:layout_height="20dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJumlah"
+        app:layout_constraintEnd_toStartOf="@+id/tvJumlah"
+        app:layout_constraintTop_toTopOf="@+id/tvJumlah"
+        app:srcCompat="@drawable/minusbutton" />
+
+    <ImageView
+        android:id="@+id/ivPlus"
+        android:layout_width="21dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJumlah"
+        app:layout_constraintStart_toEndOf="@+id/tvJumlah"
+        app:layout_constraintTop_toTopOf="@+id/tvJumlah"
+        app:srcCompat="@drawable/plusbutton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
