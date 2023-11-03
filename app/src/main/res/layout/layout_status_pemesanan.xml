@@ -3,18 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp">
 
     <ImageView
         android:id="@+id/imageView7"
-        android:layout_width="411dp"
-        android:layout_height="92dp"
+        android:layout_width="329dp"
+        android:layout_height="73dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.003"
         app:srcCompat="@drawable/dasarreyclye" />
 
     <TextView
@@ -24,7 +25,7 @@
         android:text="Status Pemesanan"
         android:textStyle="bold"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="@+id/imageView7" />
 
@@ -32,20 +33,20 @@
         android:id="@+id/tvNomorPemesanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nomor Pemesanan"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="2.5dp"
+        android:text="Nomor Pemesanan"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintTop_toBottomOf="@+id/tvStatusPemesanan" />
 
     <TextView
         android:id="@+id/tvJumlahItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="2.5dp"
         android:text="Jumlah Item"
         android:textStyle="bold"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="55dp"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
-        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNomorPemesanan" />
 </androidx.constraintlayout.widget.ConstraintLayout>
