@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/imageView13"
-        android:layout_width="match_parent"
-        android:layout_height="98dp"
+        android:layout_width="378dp"
+        android:layout_height="93dp"
         android:layout_marginBottom="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,8 +30,9 @@
         android:id="@+id/judulMakanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="Nasi Goreng"
         app:layout_constraintStart_toEndOf="@+id/iconMakanan"
         app:layout_constraintTop_toTopOf="@+id/imageView13" />
@@ -43,23 +44,23 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView13"
         app:layout_constraintStart_toStartOf="@+id/judulMakanan"
         app:layout_constraintTop_toBottomOf="@+id/judulMakanan"
-        app:layout_constraintVertical_bias="0.292"
+        app:layout_constraintVertical_bias="0.354"
         app:srcCompat="@drawable/bintang" />
 
     <ImageView
         android:id="@+id/btnDetail"
-        android:layout_width="88dp"
+        android:layout_width="83dp"
         android:layout_height="51dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="36dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView13"
         app:layout_constraintStart_toEndOf="@+id/imageView15"
         app:layout_constraintTop_toTopOf="@+id/imageView13"
-        app:layout_constraintVertical_bias="0.523"
+        app:layout_constraintVertical_bias="0.571"
         app:srcCompat="@drawable/buttonlayer" />
 
     <ImageView
         android:id="@+id/btnAdd"
-        android:layout_width="88dp"
+        android:layout_width="83dp"
         android:layout_height="51dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnDetail"
         app:layout_constraintEnd_toEndOf="@+id/imageView13"
@@ -73,6 +74,7 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
         android:text="Detail"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btnDetail"
@@ -84,6 +86,7 @@
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
         android:text="Add"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btnAdd"
