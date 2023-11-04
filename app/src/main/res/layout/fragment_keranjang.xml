@@ -56,7 +56,7 @@
         app:layout_constraintTop_toTopOf="@+id/ivTopBar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rvMenuPemesanan"
         android:layout_width="411dp"
         android:layout_height="311dp"
         android:layout_marginTop="5dp"

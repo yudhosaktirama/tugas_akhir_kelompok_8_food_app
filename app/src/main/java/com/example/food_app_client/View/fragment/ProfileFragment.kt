@@ -8,11 +8,17 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.food_app_client.Model.Adapter.AdapterStatusPesanan
+import com.example.food_app_client.Model.ListLokal.liststatus
 import com.example.food_app_client.R
 import com.example.food_app_client.ViewModel.UserViewModel
 
 
 class ProfileFragment : Fragment() {
+    lateinit var adapter: AdapterStatusPesanan
+    lateinit var recyclerView: RecyclerView
     private lateinit var tvNama: TextView
     private lateinit var tvAlamat: TextView
     private lateinit var tvNoHp : TextView
@@ -39,11 +45,9 @@ class ProfileFragment : Fragment() {
         tvNoHp = view.findViewById(R.id.tvNohp)
         tvNamaTop = view.findViewById(R.id.tvNamaOrang)
         tvAlamatTop = view.findViewById(R.id.tvAlamat)
+        recyclerView = view.findViewById(R.id.rvStatusPemesanan)
 
         setInformasi(tvNama,tvAlamat,tvNoHp,tvNamaTop,tvAlamatTop)
-
-
-
 
     }
 
@@ -59,6 +63,8 @@ class ProfileFragment : Fragment() {
         userViewModel.noHp.observe(viewLifecycleOwner){newValue ->
             tvnoHp.text = newValue
         }
+        recyclerView.adapter = AdapterStatusPesanan(liststatus, requireContext())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
 
     }
 }

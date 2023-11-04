@@ -86,86 +86,86 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="60dp"
         android:text="Nama          :"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="90dp"
         android:text="Alamat        :"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="225dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="120dp"
         android:text="Email           :"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="150dp"
         android:text="No HP         :"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/tvNama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="60dp"
         android:text="Nama"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/tvAlamatProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="90dp"
         android:text="Alamat"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="225dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="120dp"
         android:text="Email"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/tvNohp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="150dp"
         android:text="No HP"
         android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <ImageView
         android:id="@+id/imageView16"
@@ -194,7 +194,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvStatusPemesanan"
         android:layout_width="349dp"
-        android:layout_height="324dp"
+        android:layout_height="302dp"
         android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView16"
         app:layout_constraintHorizontal_bias="0.272"
