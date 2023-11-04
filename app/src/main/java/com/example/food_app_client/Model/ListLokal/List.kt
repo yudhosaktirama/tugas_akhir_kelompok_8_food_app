@@ -1,6 +1,7 @@
 package com.example.food_app_client.Model.ListLokal
 
 import com.example.food_app_client.Model.ModelClass.Menu
+import com.example.food_app_client.Model.ModelClass.Pesanan
 import com.example.food_app_client.Model.ModelClass.Status
 
 val listmakanan: List<Menu> = listOf(
@@ -17,4 +18,11 @@ val liststatus: List<Status> = listOf(
     Status("Selesai", "Pesanan 3", "2 item"),
     Status("Selesai", "Pesanan 4", "4 item"),
     Status("Sedang diantar", "Pesanan 5", "5 item"),
+)
+
+val listpesanan: List<Pesanan> = listOf(
+    Pesanan("Nasi Uduk", 5000, 1),
+    Pesanan("Nasi Uduk", 5000, 1),
+    Pesanan("Nasi Uduk", 5000, 1),
+    Pesanan("Nasi Uduk", 5000, 1),
 )
