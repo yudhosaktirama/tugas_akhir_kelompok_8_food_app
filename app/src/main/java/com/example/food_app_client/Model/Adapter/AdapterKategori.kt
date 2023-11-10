@@ -1,20 +1,25 @@
 package com.example.food_app_client.Model.Adapter
 
-import android.content.Context
+
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.food_app_client.Model.ModelClass.Menu
 import com.example.food_app_client.R
+import com.example.food_app_client.View.fragment.DetailFragment
 
-class AdapterKategori (val listMenu: List<Menu>): RecyclerView.Adapter<AdapterKategori.KategoriViewHolder>() {
+class AdapterKategori (val listMenu: List<Menu>, val fragment: FragmentManager): RecyclerView.Adapter<AdapterKategori.KategoriViewHolder>() {
 
     class KategoriViewHolder(row: View): RecyclerView.ViewHolder(row){
         val gambar = row.findViewById<ImageView>(R.id.iconMakanan)
         val judulMakanan = row.findViewById<TextView>(R.id.judulMakanan)
+        val btnDetail = row.findViewById<ImageView>(R.id.btnDetail)
+        val btnAdd = row.findViewById<ImageView>(R.id.btnAdd)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KategoriViewHolder {
@@ -31,5 +36,18 @@ class AdapterKategori (val listMenu: List<Menu>): RecyclerView.Adapter<AdapterKa
 
         holder.gambar.setImageResource(binding.gambar)
         holder.judulMakanan.text = binding.namaMakanan
+
+        holder.btnDetail.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("deskripsi",binding.deskripsi)
+            bundle.putString("durasi",binding.lamaMemasak)
+            bundle.putString("populer",binding.popularitas)
+            val transaksi = fragment.beginTransaction()
+            val fragmentDetail = DetailFragment()
+            fragmentDetail.arguments = bundle
+            transaksi.replace(R.id.fragmentContainerView2,fragmentDetail)
+            transaksi.addToBackStack(null)
+            transaksi.commit()
+        }
     }
 }

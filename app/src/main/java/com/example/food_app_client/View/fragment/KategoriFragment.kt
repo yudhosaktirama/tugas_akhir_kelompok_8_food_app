@@ -88,7 +88,7 @@ class KategoriFragment : Fragment() {
 
     fun pantauPerubahanList(){
         kategoriViewModel.listMakananku.observe(viewLifecycleOwner){newValue ->
-            recylerKategori.adapter = AdapterKategori(newValue)
+            recylerKategori.adapter = AdapterKategori(newValue,requireActivity().supportFragmentManager)
             recylerKategori.layoutManager = LinearLayoutManager(requireContext())
         }
     }
