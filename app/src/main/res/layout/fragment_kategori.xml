@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".View.fragment.KategoriFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/textView15"
@@ -69,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivTopBar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recycleKategori"
         android:layout_width="410dp"
         android:layout_height="573dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,39 +77,39 @@
         tools:listitem="@layout/layout_menu_populer" />
 
     <ImageView
-        android:id="@+id/imageView19"
+        android:id="@+id/kategoriMakanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="10dp"
         android:src="@drawable/rectangle_9"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/recycleKategori"
         app:layout_constraintStart_toStartOf="@+id/textView16"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView20"
+        android:id="@+id/kategoriMinuman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="9dp"
         android:src="@drawable/rectangle_9"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-        app:layout_constraintStart_toEndOf="@+id/imageView19"
-        app:layout_constraintTop_toTopOf="@+id/imageView19"
+        app:layout_constraintBottom_toTopOf="@+id/recycleKategori"
+        app:layout_constraintStart_toEndOf="@+id/kategoriMakanan"
+        app:layout_constraintTop_toTopOf="@+id/kategoriMakanan"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView21"
+        android:id="@+id/kategoriDessert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="9dp"
         android:src="@drawable/rectangle_9"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/recycleKategori"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView20"
+        app:layout_constraintTop_toTopOf="@+id/kategoriMinuman"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -119,10 +118,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
         android:text="Makanan"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView19"
-        app:layout_constraintEnd_toEndOf="@+id/imageView19"
-        app:layout_constraintStart_toStartOf="@+id/imageView19"
-        app:layout_constraintTop_toTopOf="@+id/imageView19" />
+        app:layout_constraintBottom_toBottomOf="@+id/kategoriMakanan"
+        app:layout_constraintEnd_toEndOf="@+id/kategoriMakanan"
+        app:layout_constraintStart_toStartOf="@+id/kategoriMakanan"
+        app:layout_constraintTop_toTopOf="@+id/kategoriMakanan" />
 
     <TextView
         android:id="@+id/textView18"
@@ -130,11 +129,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
         android:text="Minuman"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView20"
-        app:layout_constraintEnd_toEndOf="@+id/imageView20"
+        app:layout_constraintBottom_toBottomOf="@+id/kategoriMinuman"
+        app:layout_constraintEnd_toEndOf="@+id/kategoriMinuman"
         app:layout_constraintHorizontal_bias="0.513"
-        app:layout_constraintStart_toStartOf="@+id/imageView20"
-        app:layout_constraintTop_toTopOf="@+id/imageView20"
+        app:layout_constraintStart_toStartOf="@+id/kategoriMinuman"
+        app:layout_constraintTop_toTopOf="@+id/kategoriMinuman"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -143,9 +142,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
         android:text="Dessert"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView21"
-        app:layout_constraintEnd_toEndOf="@+id/imageView21"
-        app:layout_constraintStart_toStartOf="@+id/imageView21"
-        app:layout_constraintTop_toTopOf="@+id/imageView21" />
+        app:layout_constraintBottom_toBottomOf="@+id/kategoriDessert"
+        app:layout_constraintEnd_toEndOf="@+id/kategoriDessert"
+        app:layout_constraintStart_toStartOf="@+id/kategoriDessert"
+        app:layout_constraintTop_toTopOf="@+id/kategoriDessert" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
