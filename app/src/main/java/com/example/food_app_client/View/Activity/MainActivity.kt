@@ -40,9 +40,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-
-
-
     }
 
     fun pindahFragment(fragment: Fragment){

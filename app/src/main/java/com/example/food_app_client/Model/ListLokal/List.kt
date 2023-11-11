@@ -12,6 +12,23 @@ val listmakanan: List<Menu> = listOf(
     Menu("Nasi"),
 )
 
+
+val listminuman: List<Menu> = listOf(
+    Menu("Es Teh",),
+    Menu("Es Jeruk"),
+    Menu("Es Coklat"),
+    Menu("Marimas"),
+    Menu("Kopi"),
+)
+
+val listdessert: List<Menu> = listOf(
+    Menu("Kue",),
+    Menu("Pudding"),
+    Menu("Es krim"),
+    Menu("Brownie"),
+    Menu("Waffle"),
+)
+
 val liststatus: List<Status> = listOf(
     Status("Selesai", "Pesanan 1", "3 item"),
     Status("Selesai", "Pesanan 2", "1 item"),
