@@ -5,29 +5,30 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.food_app_client.Model.Adapter.AdapterMenuPesan
+import com.example.food_app_client.Model.Adapter.AdapterStatusPesanan
+import com.example.food_app_client.Model.ListLokal.listpesanan
+import com.example.food_app_client.Model.ListLokal.liststatus
 import com.example.food_app_client.R
+import com.example.food_app_client.ViewModel.UserViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [KeranjangFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class KeranjangFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
+    lateinit var adapter: AdapterMenuPesan
+    lateinit var recyclerView: RecyclerView
+    private lateinit var tvNama: TextView
+    private lateinit var tvAlamat: TextView
+    private lateinit var tvBiayaMakanan: TextView
+    private lateinit var tvBiayaAntar: TextView
+    private lateinit var tvTotalBiaya: TextView
+    private lateinit var btnCheckout: ImageView
+    private val userViewModel: UserViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -38,23 +39,30 @@ class KeranjangFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_keranjang, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment KeranjangFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            KeranjangFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tvNama = view.findViewById(R.id.tvNamaAtas)
+        tvAlamat = view.findViewById(R.id.tvAlamatAtas)
+        tvBiayaMakanan = view.findViewById(R.id.tvbMakanan)
+        tvBiayaAntar = view.findViewById(R.id.tvbAntar)
+        tvTotalBiaya = view.findViewById(R.id.tvTotal)
+        btnCheckout = view.findViewById(R.id.ivCheckout)
+        recyclerView = view.findViewById(R.id.rvMenuPemesanan)
+
+
+
+        setInformasi(tvNama, tvAlamat)
+    }
+
+    fun setInformasi(tvnama: TextView, tvalamat: TextView) {
+        userViewModel.nama.observe(viewLifecycleOwner) {newValue ->
+            tvnama.text = newValue
+        }
+        userViewModel.alamat.observe(viewLifecycleOwner) {newValue ->
+            tvalamat.text = newValue
+        }
+        recyclerView.adapter = AdapterMenuPesan(listpesanan, requireContext())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
     }
 }

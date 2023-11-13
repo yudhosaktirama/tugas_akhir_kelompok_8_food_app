@@ -31,6 +31,5 @@ class AdapterMenuPesan(val list: List<Pesanan>, val konteks: Context) : Recycler
         val binding = list[position]
         holder.iconMakanan.setImageResource(binding.iconMakanan)
         holder.namaMakanan.text = binding.namaMakanan
-
     }
 }

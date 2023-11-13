@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="@+id/ivTopBar" />
 
     <TextView
-        android:id="@+id/tvNamaOrang"
+        android:id="@+id/tvNamaAtas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nama Orang"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="@+id/ivTopBar" />
 
     <TextView
-        android:id="@+id/tvAlamat"
+        android:id="@+id/tvAlamatAtas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Alamat"
@@ -57,9 +57,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMenuPemesanan"
-        android:layout_width="411dp"
-        android:layout_height="311dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="414dp"
+        android:layout_height="351dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView17"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,7 +138,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView17" />
 
     <ImageView
-        android:id="@+id/imageView18"
+        android:id="@+id/ivCheckout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="112dp"
@@ -154,10 +153,10 @@
         android:layout_height="wrap_content"
         android:text="Checkout"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView18"
-        app:layout_constraintEnd_toEndOf="@+id/imageView18"
-        app:layout_constraintStart_toStartOf="@+id/imageView18"
-        app:layout_constraintTop_toTopOf="@+id/imageView18" />
+        app:layout_constraintBottom_toBottomOf="@+id/ivCheckout"
+        app:layout_constraintEnd_toEndOf="@+id/ivCheckout"
+        app:layout_constraintStart_toStartOf="@+id/ivCheckout"
+        app:layout_constraintTop_toTopOf="@+id/ivCheckout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

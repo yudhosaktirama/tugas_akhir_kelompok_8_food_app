@@ -42,4 +42,6 @@ val listpesanan: List<Pesanan> = listOf(
     Pesanan("Nasi Uduk", 5000, 1),
     Pesanan("Nasi Uduk", 5000, 1),
     Pesanan("Nasi Uduk", 5000, 1),
+    Pesanan("Nasi Uduk", 5000, 1),
+    Pesanan("Nasi Uduk", 5000, 1)
 )
