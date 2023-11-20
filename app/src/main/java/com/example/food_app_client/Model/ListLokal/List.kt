@@ -37,11 +37,7 @@ val liststatus: List<Status> = listOf(
     Status("Sedang diantar", "Pesanan 5", "5 item"),
 )
 
-val listpesanan: List<Pesanan> = listOf(
-    Pesanan("Nasi Uduk", 5000, 1),
-    Pesanan("Nasi Uduk", 5000, 1),
-    Pesanan("Nasi Uduk", 5000, 1),
-    Pesanan("Nasi Uduk", 5000, 1),
-    Pesanan("Nasi Uduk", 5000, 1),
-    Pesanan("Nasi Uduk", 5000, 1)
+val listpesanan: MutableList<Pesanan> = mutableListOf(
 )
+
+val listCounter: MutableList<Int> = mutableListOf()

@@ -7,18 +7,20 @@
     tools:context=".View.fragment.DetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/textView21"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#3B376F"
-         />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
         android:id="@+id/imageView22"
         android:layout_width="445dp"
         android:layout_height="492dp"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="244dp"
         android:src="@drawable/rectangle_4__1_"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +139,7 @@
         android:id="@+id/tvhargaMakanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Rp. 0"
         app:layout_constraintEnd_toEndOf="@+id/textView21"
@@ -149,12 +151,12 @@
         android:id="@+id/btnIncrement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginEnd="40dp"
         android:src="@drawable/plusbutton"
-        app:layout_constraintEnd_toEndOf="@+id/textView21"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toEndOf="@+id/tvCounter"
-        app:layout_constraintTop_toBottomOf="@+id/tvPopuler" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvCounter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCounter"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/btnDecremenet"
@@ -162,30 +164,30 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:src="@drawable/minusbutton"
-        app:layout_constraintEnd_toStartOf="@+id/tvCounter"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvPopuler"
+        app:layout_constraintStart_toStartOf="@+id/tvhargaMakanan"
         app:layout_constraintTop_toBottomOf="@+id/tvPopuler" />
 
     <TextView
         android:id="@+id/tvCounter"
         android:layout_width="19dp"
         android:layout_height="21dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="12dp"
         android:fontFamily="@font/poppins_bold"
         android:text="0"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/tvhargaMakanan"
-        app:layout_constraintEnd_toEndOf="@+id/textView21"
-        app:layout_constraintTop_toBottomOf="@+id/tvPopuler"
-        app:layout_constraintVertical_bias="0.821" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnDecremenet"
+        app:layout_constraintEnd_toStartOf="@+id/btnIncrement"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toEndOf="@+id/btnDecremenet"
+        app:layout_constraintTop_toTopOf="@+id/btnDecremenet"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/btnTambahMakanan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="56dp"
         android:src="@drawable/group_5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvhargaMakanan" />

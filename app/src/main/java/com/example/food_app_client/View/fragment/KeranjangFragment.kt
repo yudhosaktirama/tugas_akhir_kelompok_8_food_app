@@ -15,6 +15,7 @@ import com.example.food_app_client.Model.Adapter.AdapterStatusPesanan
 import com.example.food_app_client.Model.ListLokal.listpesanan
 import com.example.food_app_client.Model.ListLokal.liststatus
 import com.example.food_app_client.R
+import com.example.food_app_client.ViewModel.KeranjangViewModel
 import com.example.food_app_client.ViewModel.UserViewModel
 
 class KeranjangFragment : Fragment() {
@@ -27,6 +28,7 @@ class KeranjangFragment : Fragment() {
     private lateinit var tvTotalBiaya: TextView
     private lateinit var btnCheckout: ImageView
     private val userViewModel: UserViewModel by activityViewModels()
+    private val keranjangViewModel: KeranjangViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -52,6 +54,7 @@ class KeranjangFragment : Fragment() {
 
 
         setInformasi(tvNama, tvAlamat)
+        setKeranjang()
     }
 
     fun setInformasi(tvnama: TextView, tvalamat: TextView) {
@@ -61,8 +64,13 @@ class KeranjangFragment : Fragment() {
         userViewModel.alamat.observe(viewLifecycleOwner) {newValue ->
             tvalamat.text = newValue
         }
-        recyclerView.adapter = AdapterMenuPesan(listpesanan, requireContext())
-        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
+    }
+
+    fun setKeranjang(){
+        keranjangViewModel.listKeranjang.observe(viewLifecycleOwner){newValue ->
+            recyclerView.adapter = AdapterMenuPesan(newValue, requireContext(),keranjangViewModel,viewLifecycleOwner)
+            recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        }
     }
 }
