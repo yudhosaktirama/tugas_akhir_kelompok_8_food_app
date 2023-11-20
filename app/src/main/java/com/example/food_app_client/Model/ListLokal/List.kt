@@ -1,5 +1,6 @@
 package com.example.food_app_client.Model.ListLokal
 
+import com.example.food_app_client.Model.ModelClass.Counter
 import com.example.food_app_client.Model.ModelClass.Menu
 import com.example.food_app_client.Model.ModelClass.Pesanan
 import com.example.food_app_client.Model.ModelClass.Status
@@ -40,4 +41,4 @@ val liststatus: List<Status> = listOf(
 val listpesanan: MutableList<Pesanan> = mutableListOf(
 )
 
-val listCounter: MutableList<Int> = mutableListOf()
+val listCounter: MutableList<Counter> = mutableListOf()

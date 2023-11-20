@@ -14,6 +14,7 @@ import com.example.food_app_client.Model.Adapter.AdapterStatusPesanan
 import com.example.food_app_client.Model.ListLokal.liststatus
 import com.example.food_app_client.R
 import com.example.food_app_client.ViewModel.UserViewModel
+import com.google.firebase.auth.FirebaseAuth
 
 
 class ProfileFragment : Fragment() {
@@ -24,6 +25,8 @@ class ProfileFragment : Fragment() {
     private lateinit var tvNoHp : TextView
     private lateinit var tvNamaTop: TextView
     private lateinit var tvAlamatTop: TextView
+    private lateinit var tvEmail: TextView
+    private lateinit var firebaseAuth: FirebaseAuth
     private val userViewModel: UserViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,12 @@ class ProfileFragment : Fragment() {
         tvNamaTop = view.findViewById(R.id.tvNamaOrang)
         tvAlamatTop = view.findViewById(R.id.tvAlamat)
         recyclerView = view.findViewById(R.id.rvStatusPemesanan)
+        tvEmail = view.findViewById(R.id.tvEmail)
+
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        tvEmail.text = firebaseAuth.currentUser!!.email
+
 
         setInformasi(tvNama,tvAlamat,tvNoHp,tvNamaTop,tvAlamatTop)
 

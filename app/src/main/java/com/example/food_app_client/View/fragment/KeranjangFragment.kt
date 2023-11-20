@@ -51,6 +51,15 @@ class KeranjangFragment : Fragment() {
         btnCheckout = view.findViewById(R.id.ivCheckout)
         recyclerView = view.findViewById(R.id.rvMenuPemesanan)
 
+        keranjangViewModel.hargaTotal.observe(viewLifecycleOwner){newValue ->
+            tvBiayaMakanan.text = newValue.toString()
+        }
+
+        keranjangViewModel.hargaAkhir.observe(viewLifecycleOwner){hargaAkhir ->
+            tvTotalBiaya.text = hargaAkhir.toString()
+        }
+
+
 
 
         setInformasi(tvNama, tvAlamat)

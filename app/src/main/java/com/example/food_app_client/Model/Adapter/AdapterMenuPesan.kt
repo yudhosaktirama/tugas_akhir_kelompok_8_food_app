@@ -35,21 +35,23 @@ class AdapterMenuPesan(val list: List<Pesanan>, val konteks: Context, val keranj
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: PesananViewHolder, position: Int) {
-        var binding = list[position]
+        val binding = list[position]
         holder.iconMakanan.setImageResource(binding.iconMakanan)
         holder.namaMakanan.text = binding.namaMakanan
         keranjangViewModel.counterList.observe(lifecycle){newValue ->
-            holder.counter.text = newValue[position].toString()
+            holder.counter.text = newValue[position].counter.toString()
+            holder.hargaMakanan.text = newValue[position].harga.toString()
         }
 
         holder.btnPlus.setOnClickListener {
-            keranjangViewModel.incrementList(position)
+            keranjangViewModel.incrementList(position,binding.hargaSatuan)
             notifyDataSetChanged()
         }
         holder.btnMinus.setOnClickListener {
-            keranjangViewModel.decrementList(position,konteks)
+            keranjangViewModel.decrementList(position,konteks,binding.hargaSatuan)
+            notifyDataSetChanged()
         }
-        holder.hargaMakanan.text = binding.harga.toString()
+
 
     }
 }

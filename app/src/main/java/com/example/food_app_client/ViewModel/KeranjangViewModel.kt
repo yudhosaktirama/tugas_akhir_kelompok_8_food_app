@@ -7,13 +7,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.food_app_client.Model.ListLokal.listCounter
 import com.example.food_app_client.Model.ListLokal.listpesanan
+import com.example.food_app_client.Model.ModelClass.Counter
 import com.example.food_app_client.Model.ModelClass.Pesanan
 
 class KeranjangViewModel : ViewModel() {
     private var _counter: MutableLiveData<Int> = MutableLiveData(0)
     private var _harga : MutableLiveData<Int> = MutableLiveData(0)
     private var _listKeranjang : MutableLiveData<MutableList<Pesanan>> = MutableLiveData(listpesanan)
-    private var _counterList: MutableLiveData<MutableList<Int>> = MutableLiveData(listCounter)
+    private var _counterList: MutableLiveData<MutableList<Counter>> = MutableLiveData(listCounter)
+    private var _hargaTotal: MutableLiveData<Int> = MutableLiveData(0)
+    private var _hargaAkhir: MutableLiveData<Int> = MutableLiveData(0)
 
     val counter:LiveData<Int>
         get() = _counter
@@ -24,8 +27,14 @@ class KeranjangViewModel : ViewModel() {
     val listKeranjang: LiveData<MutableList<Pesanan>>
         get() = _listKeranjang
 
-    val counterList:  LiveData<MutableList<Int>>
+    val counterList:  LiveData<MutableList<Counter>>
         get() = _counterList
+
+    val hargaTotal: LiveData<Int>
+        get() = _hargaTotal
+
+    val hargaAkhir : LiveData<Int>
+        get() = _hargaAkhir
 
 
     fun Increment(){
@@ -51,32 +60,46 @@ class KeranjangViewModel : ViewModel() {
         _counter.value = 0
     }
 
-    fun tambahMakananKeKeranjang(namaMakanan: String,gambarMakanan: Int){
+    fun tambahMakananKeKeranjang(namaMakanan: String,gambarMakanan: Int,hargaSatuan: Int){
        listpesanan.add(
            Pesanan(
-           namaMakanan, _harga.value!!,_counter.value!!
+           namaMakanan, _harga.value!!,_counter.value!!,gambarMakanan,hargaSatuan
        )
        )
+
     }
 
-    fun incrementList(posisi:Int){
-        _counterList.value!![posisi]+=1
+    fun incrementList(posisi:Int,hargaSatuan: Int){
+        _counterList.value!![posisi].counter+=1
+        _counterList.value!![posisi].harga = _counterList.value!![posisi].counter * hargaSatuan
+        setHargaTotal()
     }
-    fun decrementList(posisi:Int,konteks: Context){
-        if (_counterList.value!![posisi] == 1){
+    fun decrementList(posisi:Int,konteks: Context,hargaSatuan: Int){
+        if (_counterList.value!![posisi].counter == 1){
             Toast.makeText(konteks, "Tidak Bisa dikurangi", Toast.LENGTH_SHORT).show()
         }else{
-            _counterList.value!![posisi]-=1
+            _counterList.value!![posisi].counter-=1
+            _counterList.value!![posisi].harga = _counterList.value!![posisi].counter * hargaSatuan
+            setHargaTotal()
         }
 
+    }
+
+    fun setHargaTotal(){
+        _hargaTotal.value = _counterList.value!!.sumOf {
+            it.harga
+        }
+        _hargaAkhir.value = _hargaTotal.value!! + 5000
     }
 
     fun setCounterList(list: List<Pesanan>){
         if (listCounter.size != list.size){
             listCounter.clear()
             for (i in list){
-                listCounter.add(i.jumlah)
+                listCounter.add(Counter(i.jumlah,i.harga))
             }
         }
+        setHargaTotal()
+
     }
 }
