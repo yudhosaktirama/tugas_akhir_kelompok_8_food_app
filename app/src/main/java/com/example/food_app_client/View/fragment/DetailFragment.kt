@@ -99,7 +99,7 @@ class DetailFragment : Fragment() {
     fun tambahMakananKeranjang(nama: String,gambar: Int,hargaSatuan: Int){
         btnTambahKeranjang.setOnClickListener {
             keranjangViewModel.tambahMakananKeKeranjang(nama,gambar,hargaSatuan)
-            keranjangViewModel.setCounterList(listpesanan)
+            keranjangViewModel.setHargaTotal()
         }
     }
 

@@ -70,36 +70,30 @@ class KeranjangViewModel : ViewModel() {
     }
 
     fun incrementList(posisi:Int,hargaSatuan: Int){
-        _counterList.value!![posisi].counter+=1
-        _counterList.value!![posisi].harga = _counterList.value!![posisi].counter * hargaSatuan
+        _listKeranjang.value!![posisi].jumlah+=1
+        _listKeranjang.value!![posisi].harga = _listKeranjang.value!![posisi].jumlah * hargaSatuan
         setHargaTotal()
     }
     fun decrementList(posisi:Int,konteks: Context,hargaSatuan: Int){
-        if (_counterList.value!![posisi].counter == 1){
+        if (_listKeranjang.value!![posisi].jumlah == 1){
             Toast.makeText(konteks, "Tidak Bisa dikurangi", Toast.LENGTH_SHORT).show()
         }else{
-            _counterList.value!![posisi].counter-=1
-            _counterList.value!![posisi].harga = _counterList.value!![posisi].counter * hargaSatuan
+            _listKeranjang.value!![posisi].jumlah-=1
+            _listKeranjang.value!![posisi].harga = _listKeranjang.value!![posisi].jumlah * hargaSatuan
             setHargaTotal()
         }
 
     }
 
     fun setHargaTotal(){
-        _hargaTotal.value = _counterList.value!!.sumOf {
+        _hargaTotal.value = _listKeranjang.value!!.sumOf {
             it.harga
         }
         _hargaAkhir.value = _hargaTotal.value!! + 5000
     }
 
-    fun setCounterList(list: List<Pesanan>){
-        if (listCounter.size != list.size){
-            listCounter.clear()
-            for (i in list){
-                listCounter.add(Counter(i.jumlah,i.harga))
-            }
-        }
-        setHargaTotal()
+    fun ClearList(){
+        _listKeranjang.value!!.clear()
 
     }
 }

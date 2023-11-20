@@ -38,9 +38,10 @@ class AdapterMenuPesan(val list: List<Pesanan>, val konteks: Context, val keranj
         val binding = list[position]
         holder.iconMakanan.setImageResource(binding.iconMakanan)
         holder.namaMakanan.text = binding.namaMakanan
-        keranjangViewModel.counterList.observe(lifecycle){newValue ->
-            holder.counter.text = newValue[position].counter.toString()
+        keranjangViewModel.listKeranjang.observe(lifecycle){newValue ->
+            holder.counter.text = newValue[position].jumlah.toString()
             holder.hargaMakanan.text = newValue[position].harga.toString()
+
         }
 
         holder.btnPlus.setOnClickListener {
