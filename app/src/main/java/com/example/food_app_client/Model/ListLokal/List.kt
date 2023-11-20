@@ -42,3 +42,5 @@ val listpesanan: MutableList<Pesanan> = mutableListOf(
 )
 
 val listCounter: MutableList<Counter> = mutableListOf()
+
+val listStatus: MutableList<Status> = mutableListOf()

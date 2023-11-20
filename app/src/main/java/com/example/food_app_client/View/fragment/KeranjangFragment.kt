@@ -1,6 +1,7 @@
 package com.example.food_app_client.View.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -19,6 +20,7 @@ import com.example.food_app_client.Model.ListLokal.listdessert
 import com.example.food_app_client.Model.ListLokal.listmakanan
 import com.example.food_app_client.Model.ListLokal.listpesanan
 import com.example.food_app_client.R
+import com.example.food_app_client.View.Activity.MainActivity
 import com.example.food_app_client.ViewModel.KeranjangViewModel
 import com.example.food_app_client.ViewModel.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
@@ -106,6 +108,7 @@ class KeranjangFragment : Fragment() {
             "nama" to userViewModel.nama.value,
             "alamat" to  userViewModel.alamat.value,
             "nomor" to  userViewModel.noHp.value,
+            "status" to "Sedang dibuat",
             "email" to firebaseAuth.currentUser!!.email,
             "harga_total" to keranjangViewModel.hargaAkhir.value,
             "pesanan_user" to keranjangViewModel.listKeranjang.value
@@ -115,6 +118,7 @@ class KeranjangFragment : Fragment() {
         }.addOnSuccessListener {
             Toast.makeText(konteks, "Berhasil Menambah Pesanan", Toast.LENGTH_SHORT).show()
             keranjangViewModel.ClearList()
+            setKeranjang()
         }
     }
 

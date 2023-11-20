@@ -94,6 +94,8 @@ class KeranjangViewModel : ViewModel() {
 
     fun ClearList(){
         _listKeranjang.value!!.clear()
+        _hargaAkhir.value = 0
+        _hargaTotal.value = 0
 
     }
 }

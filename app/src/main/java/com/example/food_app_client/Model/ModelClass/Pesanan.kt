@@ -7,5 +7,5 @@ data class Pesanan(
     var harga: Int = 5000,
     var jumlah: Int = 1,
     val iconMakanan: Int = R.drawable.makanan,
-    val hargaSatuan : Int = 1000
+    val hargaSatuan : Int = 1000,
 )
