@@ -14,7 +14,6 @@ class KeranjangViewModel : ViewModel() {
     private var _counter: MutableLiveData<Int> = MutableLiveData(0)
     private var _harga : MutableLiveData<Int> = MutableLiveData(0)
     private var _listKeranjang : MutableLiveData<MutableList<Pesanan>> = MutableLiveData(listpesanan)
-    private var _counterList: MutableLiveData<MutableList<Counter>> = MutableLiveData(listCounter)
     private var _hargaTotal: MutableLiveData<Int> = MutableLiveData(0)
     private var _hargaAkhir: MutableLiveData<Int> = MutableLiveData(0)
 
@@ -26,9 +25,6 @@ class KeranjangViewModel : ViewModel() {
 
     val listKeranjang: LiveData<MutableList<Pesanan>>
         get() = _listKeranjang
-
-    val counterList:  LiveData<MutableList<Counter>>
-        get() = _counterList
 
     val hargaTotal: LiveData<Int>
         get() = _hargaTotal

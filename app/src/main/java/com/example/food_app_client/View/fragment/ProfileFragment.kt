@@ -12,10 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.food_app_client.Model.Adapter.AdapterStatusPesanan
 import com.example.food_app_client.Model.ListLokal.liststatus
+import com.example.food_app_client.Model.ModelClass.Pesanan
 import com.example.food_app_client.Model.ModelClass.Status
 import com.example.food_app_client.R
 import com.example.food_app_client.ViewModel.StatusViewModel
 import com.example.food_app_client.ViewModel.UserViewModel
+import com.google.android.gms.tasks.Tasks.await
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.*
@@ -92,14 +94,17 @@ class ProfileFragment : Fragment() {
 
     suspend fun getDataFromFirestore() {
         try {
-            val document = firebaseFirestore.collection("pesanan").get().await()
-
+            val document = firebaseFirestore.collection("pesanan")
+                .whereEqualTo("email",firebaseAuth.currentUser!!.email).get().await()
             withContext(Dispatchers.IO) {
                 document?.let { documents ->
                     val listStatusPesanan = documents.map { dc ->
-                        Status(dc.getString("status") ?: "",
+                        Status(dc.id,
+                            dc.getString("status") ?: "",
                             dc.getString("email")?:"",
-                            dc.getString("alamat")?:"")
+                            dc.getString("alamat")?:"",
+                            dc.get("pesanan_user") as List<Pesanan>
+                        )
                     }
 
                     // Gunakan postValue untuk mengupdate LiveData di dalam wadah ViewModel

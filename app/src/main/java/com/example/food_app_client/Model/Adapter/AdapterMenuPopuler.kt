@@ -34,5 +34,7 @@ class AdapterMenuPopuler(val list: List<Menu>,val konteks: Context) : RecyclerVi
         holder.iconMakanan.setImageResource(binding.gambar)
         holder.namaMakanan.text = binding.namaMakanan
 
+
+
     }
 }
