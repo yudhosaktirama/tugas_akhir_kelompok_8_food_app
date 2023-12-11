@@ -26,7 +26,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.19999999" />
 
     <TextView
         android:id="@+id/textView7"
@@ -36,9 +37,10 @@
         android:text="Detail Pesanan"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="@+id/imageView19"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/imageView19"
-        app:layout_constraintTop_toTopOf="@+id/imageView19" />
+        app:layout_constraintTop_toTopOf="@+id/imageView19"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView8"
@@ -85,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recylerDaftarPesanan"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -104,9 +106,9 @@
         android:layout_marginBottom="16dp"
         android:text="Total Bayar Makanan"
         app:layout_constraintBottom_toTopOf="@+id/textView31"
-        app:layout_constraintEnd_toStartOf="@+id/textView35"
+        app:layout_constraintEnd_toStartOf="@+id/tvTotalBayarDetail"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView" />
+        app:layout_constraintStart_toStartOf="@+id/recylerDaftarPesanan" />
 
     <TextView
         android:id="@+id/textView31"
@@ -115,7 +117,7 @@
         android:layout_marginBottom="16dp"
         android:text="Biaya Antar"
         app:layout_constraintBottom_toTopOf="@+id/textView32"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/recylerDaftarPesanan"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView28" />
 
@@ -126,7 +128,7 @@
         android:layout_marginBottom="24dp"
         android:text="Total Biaya"
         app:layout_constraintBottom_toBottomOf="@+id/imageView19"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/recylerDaftarPesanan"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView31" />
 
@@ -142,7 +144,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView34"
+        android:id="@+id/tvAlamatdetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -153,36 +155,36 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView35"
+        android:id="@+id/tvTotalBayarDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:text="Rp 22.000"
         app:layout_constraintBottom_toBottomOf="@+id/textView28"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+        app:layout_constraintEnd_toEndOf="@+id/recylerDaftarPesanan"
         app:layout_constraintTop_toTopOf="@+id/textView28"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView36"
+        android:id="@+id/tvBiayaAntarDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rp 5.000"
         app:layout_constraintBottom_toBottomOf="@+id/textView31"
-        app:layout_constraintEnd_toEndOf="@+id/textView35"
+        app:layout_constraintEnd_toEndOf="@+id/tvTotalBayarDetail"
         app:layout_constraintTop_toTopOf="@+id/textView31" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/tvtotalBiayaDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rp 27.000"
         app:layout_constraintBottom_toBottomOf="@+id/textView32"
-        app:layout_constraintEnd_toEndOf="@+id/textView36"
+        app:layout_constraintEnd_toEndOf="@+id/tvBiayaAntarDetail"
         app:layout_constraintTop_toTopOf="@+id/textView32" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/floatingActionBackMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -193,5 +195,6 @@
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="@+id/imageView18"
         app:layout_constraintTop_toBottomOf="@+id/imageView19"
+        app:layout_constraintVertical_bias="0.23000002"
         tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

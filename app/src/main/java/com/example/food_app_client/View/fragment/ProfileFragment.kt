@@ -68,7 +68,7 @@ class ProfileFragment : Fragment() {
 
 
         setInformasi(tvNama,tvAlamat,tvNoHp,tvNamaTop,tvAlamatTop)
-        GlobalScope.launch { getDataFromFirestore() }
+        GlobalScope.launch { getPesanan() }
 
     }
 
@@ -85,36 +85,49 @@ class ProfileFragment : Fragment() {
             tvnoHp.text = newValue
         }
         statusViewModel.listStatusPesanan.observe(viewLifecycleOwner){newValue ->
-            recyclerView.adapter = AdapterStatusPesanan(newValue, requireContext())
+            recyclerView.adapter = AdapterStatusPesanan(newValue, requireContext(),requireActivity().supportFragmentManager,statusViewModel)
             recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
         }
 
 
     }
 
-    suspend fun getDataFromFirestore() {
+    suspend fun getPesanan(){
         try {
-            val document = firebaseFirestore.collection("pesanan")
-                .whereEqualTo("email",firebaseAuth.currentUser!!.email).get().await()
-            withContext(Dispatchers.IO) {
-                document?.let { documents ->
-                    val listStatusPesanan = documents.map { dc ->
-                        Status(dc.id,
-                            dc.getString("status") ?: "",
-                            dc.getString("email")?:"",
-                            dc.getString("alamat")?:"",
-                            dc.get("pesanan_user") as List<Pesanan>
+            val firestore = FirebaseFirestore.getInstance()
+            val documentData = firestore.collection("pesanan").get().await()
+            withContext(Dispatchers.IO){
+                documentData?.let {document ->
+                    val listPesanan = document.map {doc ->
+                        val listPesananUser = (doc.get("pesanan_user") as List<Map<String,Any>>).map {pesanan ->
+                            Pesanan(
+                                pesanan["namaMakanan"] as? String?: "",
+                                (pesanan["harga"] as? Number)?.toInt() ?: 0,
+                                (pesanan["jumlah"] as? Number)?.toInt() ?: 0,
+                                (pesanan["iconMakanan"] as? Number)?.toInt() ?: 0,
+
+                                )
+
+                        }?: emptyList()
+                        Status(doc.id,
+                            doc.getString("nama")?: "",
+                            doc.getString("status")?:"",
+                            doc.getString("email")?:"",
+                            doc.getString("alamat")?:"",
+                            listPesananUser
                         )
+
                     }
 
-                    // Gunakan postValue untuk mengupdate LiveData di dalam wadah ViewModel
-                    statusViewModel._listStatusPesanan.postValue(listStatusPesanan.toMutableList())
+                    statusViewModel._listStatusPesanan.postValue(listPesanan.toMutableList())
+
                 }
             }
-        } catch (e: Exception) {
-            // Handle exception, misalnya logging atau menampilkan pesan kesalahan
+
+        }catch (e: Exception){
             e.printStackTrace()
         }
+
     }
 
 }

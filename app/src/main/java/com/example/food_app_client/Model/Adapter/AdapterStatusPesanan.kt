@@ -1,18 +1,20 @@
 package com.example.food_app_client.Model.Adapter
 
 import android.content.Context
-import android.util.Log
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.food_app_client.Model.ModelClass.Status
 import com.example.food_app_client.R
-import kotlin.math.log
+import com.example.food_app_client.View.fragment.DetailPesananFragment
+import com.example.food_app_client.ViewModel.StatusViewModel
 
-class AdapterStatusPesanan(val list: List<Status>, val konteks: Context) : RecyclerView.Adapter<AdapterStatusPesanan.StatusViewHolder>() {
+class AdapterStatusPesanan(val list: List<Status>, val konteks: Context,val fragment: FragmentManager,val viewmodel: StatusViewModel) : RecyclerView.Adapter<AdapterStatusPesanan.StatusViewHolder>() {
     class StatusViewHolder(row: View): RecyclerView.ViewHolder(row) {
         val statusPemesanan = row.findViewById<TextView>(R.id.tvStatusPemesanan)
         val nomorPemesanan = row.findViewById<TextView>(R.id.tvNomorPemesanan)
@@ -34,11 +36,21 @@ class AdapterStatusPesanan(val list: List<Status>, val konteks: Context) : Recyc
 
 
         holder.statusPemesanan.text = binding.statusPemesanan
-        holder.nomorPemesanan.text = binding.nomorPemesanan
-        holder.jumlahItem.text = binding.jumlahItem
+        holder.nomorPemesanan.text = binding.Email
+        holder.jumlahItem.text = binding.Alamat
 
         holder.layout.setOnClickListener {
-            Log.e("test",binding.list.toString())
+            viewmodel.addDaftar(binding.list)
+            viewmodel.totalBiayaMakanan(binding.list)
+            val transaksi = fragment.beginTransaction()
+            val toDetail = DetailPesananFragment()
+            val bundle = Bundle()
+            bundle.putString("nama",binding.nama)
+            bundle.putString("alamat",binding.Alamat)
+            toDetail.arguments = bundle
+            transaksi.replace(R.id.fragmentContainerView2,toDetail)
+            transaksi.addToBackStack(null)
+            transaksi.commit()
         }
     }
 }
