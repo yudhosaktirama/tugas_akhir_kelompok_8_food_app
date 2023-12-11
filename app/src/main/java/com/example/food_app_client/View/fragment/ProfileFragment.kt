@@ -1,10 +1,12 @@
 package com.example.food_app_client.View.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
@@ -15,6 +17,7 @@ import com.example.food_app_client.Model.ListLokal.liststatus
 import com.example.food_app_client.Model.ModelClass.Pesanan
 import com.example.food_app_client.Model.ModelClass.Status
 import com.example.food_app_client.R
+import com.example.food_app_client.View.Activity.LoginActivity
 import com.example.food_app_client.ViewModel.StatusViewModel
 import com.example.food_app_client.ViewModel.UserViewModel
 import com.google.android.gms.tasks.Tasks.await
@@ -35,6 +38,7 @@ class ProfileFragment : Fragment() {
     private lateinit var tvEmail: TextView
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseFirestore: FirebaseFirestore
+    private lateinit var btnLogout : Button
     private val userViewModel: UserViewModel by activityViewModels()
     private val statusViewModel: StatusViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +64,7 @@ class ProfileFragment : Fragment() {
         tvAlamatTop = view.findViewById(R.id.tvAlamat)
         recyclerView = view.findViewById(R.id.rvStatusPemesanan)
         tvEmail = view.findViewById(R.id.tvEmail)
+        btnLogout = view.findViewById(R.id.btnLogout)
         firebaseFirestore = FirebaseFirestore.getInstance()
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -69,6 +74,13 @@ class ProfileFragment : Fragment() {
 
         setInformasi(tvNama,tvAlamat,tvNoHp,tvNamaTop,tvAlamatTop)
         GlobalScope.launch { getPesanan() }
+
+        btnLogout.setOnClickListener {
+            firebaseAuth.signOut()
+            val intent = Intent(requireContext(),LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
 
     }
 

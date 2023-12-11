@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         if (firebaseAuth.currentUser != null) {
             startActivity(Intent(this, UserActivity::class.java))
+            finish()
         }
     }
 
@@ -39,12 +40,14 @@ class LoginActivity : AppCompatActivity() {
         ivRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+
         }
 
         ivLogin.setOnClickListener {
 
             if (etEmail.text.isNotEmpty() && etPassword.text.isNotEmpty()){
                 prosesLogin()
+
 
             }else if (etEmail.text.isEmpty()) {
                 etEmail.error = "Silahkan Masukkan Email"
@@ -67,6 +70,7 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
                 startActivity(Intent(this, UserActivity::class.java))
+                finish()
             }
             .addOnFailureListener{ error ->
                 Toast.makeText(this, error.localizedMessage, LENGTH_SHORT).show()

@@ -35,6 +35,7 @@ class UserActivity : AppCompatActivity() {
                     this.putExtra("noHp",noHpUser)
                 }
                 startActivity(intent)
+                finish()
             }else{
                 return@setOnClickListener
             }
