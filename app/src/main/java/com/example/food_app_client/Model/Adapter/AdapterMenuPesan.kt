@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.food_app_client.Model.ModelClass.Pesanan
 import com.example.food_app_client.R
 import com.example.food_app_client.ViewModel.KeranjangViewModel
@@ -36,7 +37,7 @@ class AdapterMenuPesan(val list: List<Pesanan>, val konteks: Context, val keranj
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: PesananViewHolder, position: Int) {
         val binding = list[position]
-        holder.iconMakanan.setImageResource(binding.iconMakanan)
+        Glide.with(konteks).load(binding.iconMakanan).centerCrop().placeholder(R.drawable.makanan).into(holder.iconMakanan)
         holder.namaMakanan.text = binding.namaMakanan
         keranjangViewModel.listKeranjang.observe(lifecycle){newValue ->
             holder.counter.text = newValue[position].jumlah.toString()

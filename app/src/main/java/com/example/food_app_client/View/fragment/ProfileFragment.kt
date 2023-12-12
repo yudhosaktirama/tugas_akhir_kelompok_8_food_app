@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
+import java.awt.font.NumericShaper
 
 
 class ProfileFragment : Fragment() {
@@ -36,6 +38,7 @@ class ProfileFragment : Fragment() {
     private lateinit var tvNamaTop: TextView
     private lateinit var tvAlamatTop: TextView
     private lateinit var tvEmail: TextView
+    private lateinit var profile: ImageView
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var btnLogout : Button
@@ -64,10 +67,13 @@ class ProfileFragment : Fragment() {
         tvAlamatTop = view.findViewById(R.id.tvAlamat)
         recyclerView = view.findViewById(R.id.rvStatusPemesanan)
         tvEmail = view.findViewById(R.id.tvEmail)
+        profile = view.findViewById(R.id.ivProfileProfile)
         btnLogout = view.findViewById(R.id.btnLogout)
         firebaseFirestore = FirebaseFirestore.getInstance()
 
         firebaseAuth = FirebaseAuth.getInstance()
+
+        profile.setImageResource(R.drawable.profile)
 
         tvEmail.text = firebaseAuth.currentUser!!.email
 
@@ -98,7 +104,7 @@ class ProfileFragment : Fragment() {
         }
         statusViewModel.listStatusPesanan.observe(viewLifecycleOwner){newValue ->
             recyclerView.adapter = AdapterStatusPesanan(newValue, requireContext(),requireActivity().supportFragmentManager,statusViewModel)
-            recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, true)
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
         }
 
 
@@ -107,7 +113,7 @@ class ProfileFragment : Fragment() {
     suspend fun getPesanan(){
         try {
             val firestore = FirebaseFirestore.getInstance()
-            val documentData = firestore.collection("pesanan").get().await()
+            val documentData = firestore.collection("pesanan").whereEqualTo("email",firebaseAuth.currentUser!!.email.toString()).get().await()
             withContext(Dispatchers.IO){
                 documentData?.let {document ->
                     val listPesanan = document.map {doc ->
@@ -116,7 +122,8 @@ class ProfileFragment : Fragment() {
                                 pesanan["namaMakanan"] as? String?: "",
                                 (pesanan["harga"] as? Number)?.toInt() ?: 0,
                                 (pesanan["jumlah"] as? Number)?.toInt() ?: 0,
-                                (pesanan["iconMakanan"] as? Number)?.toInt() ?: 0,
+                                pesanan["iconMakanan"] as? String?: "",
+                                (pesanan["hargaSatuan"] as? Number)?.toInt()?: 0
 
                                 )
 

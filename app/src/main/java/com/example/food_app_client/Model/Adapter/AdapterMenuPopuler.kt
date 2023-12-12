@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.food_app_client.Model.ModelClass.Menu
 import com.example.food_app_client.R
 
@@ -31,7 +32,7 @@ class AdapterMenuPopuler(val list: List<Menu>,val konteks: Context) : RecyclerVi
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         val binding = list[position]
 
-        holder.iconMakanan.setImageResource(binding.gambar)
+        Glide.with(konteks).load(binding.gambar).centerCrop().placeholder(R.drawable.makanan).into(holder.iconMakanan)
         holder.namaMakanan.text = binding.namaMakanan
 
 

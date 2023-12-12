@@ -7,7 +7,7 @@ import com.example.food_app_client.Model.ListLokal.listmakanan
 import com.example.food_app_client.Model.ModelClass.Menu
 
 class KategoriViewModel : ViewModel() {
-   private var _listMakanan: MutableLiveData<List<Menu>> = MutableLiveData(listmakanan)
+   var _listMakanan: MutableLiveData<List<Menu>> = MutableLiveData(listmakanan)
 
     val listMakananku:LiveData<List<Menu>>
         get() = _listMakanan

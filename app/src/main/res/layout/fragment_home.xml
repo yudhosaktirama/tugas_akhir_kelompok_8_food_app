@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/ivprofile"
         android:layout_width="77dp"
         android:layout_height="78dp"
         android:layout_marginStart="28dp"
@@ -36,7 +36,7 @@
         android:text="Nama Orang"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toEndOf="@+id/ivprofile"
         app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
     <TextView
@@ -56,16 +56,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="Berita Makanan"
+        android:text="Makanan Hari Ini"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+        app:layout_constraintStart_toStartOf="@+id/ivprofile"
+        app:layout_constraintTop_toBottomOf="@+id/ivprofile" />
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/ivKonten1"
+        android:layout_width="148dp"
+        android:layout_height="132dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="24dp"
         android:src="@drawable/berita"
@@ -73,14 +73,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/ivKonten2"
+        android:layout_width="148dp"
+        android:layout_height="132dp"
         android:src="@drawable/berita"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintBottom_toBottomOf="@+id/ivKonten1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+        app:layout_constraintStart_toEndOf="@+id/ivKonten1"
+        app:layout_constraintTop_toTopOf="@+id/ivKonten1" />
 
     <TextView
         android:id="@+id/textView10"
@@ -96,7 +96,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerMenuPopuler"
-        android:layout_width="394dp"
+        android:layout_width="0dp"
         android:layout_height="372dp"
         android:layout_marginTop="6dp"
         app:layout_constraintBottom_toBottomOf="parent"

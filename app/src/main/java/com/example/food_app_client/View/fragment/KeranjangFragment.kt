@@ -36,6 +36,7 @@ class KeranjangFragment : Fragment() {
     private lateinit var tvBiayaMakanan: TextView
     private lateinit var tvBiayaAntar: TextView
     private lateinit var tvTotalBiaya: TextView
+    private lateinit var profile: ImageView
     private lateinit var btnCheckout: ImageView
     private lateinit var firestore: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
@@ -62,8 +63,11 @@ class KeranjangFragment : Fragment() {
         tvTotalBiaya = view.findViewById(R.id.tvTotal)
         btnCheckout = view.findViewById(R.id.ivCheckout)
         recyclerView = view.findViewById(R.id.rvMenuPemesanan)
+        profile = view.findViewById(R.id.ivProfileKeranjang)
         firestore = FirebaseFirestore.getInstance()
         firebaseAuth = FirebaseAuth.getInstance()
+
+        profile.setImageResource(R.drawable.profile)
 
         setInformasi(tvNama, tvAlamat)
         setKeranjang()

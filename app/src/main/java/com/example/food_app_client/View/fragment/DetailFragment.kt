@@ -53,7 +53,7 @@ class DetailFragment : Fragment() {
 
         val harga =arguments?.getInt("harga")
         val namaMakanan = arguments?.getString("nama")
-        val gambar = arguments?.getInt("gambar")
+        val gambar = arguments?.getString("gambar")
         val deskripsi = arguments?.getString("deskripsi")
         val durasi = arguments?.getString("durasi")
         val populer = arguments?.getString("populer")
@@ -96,7 +96,7 @@ class DetailFragment : Fragment() {
         }
     }
 
-    fun tambahMakananKeranjang(nama: String,gambar: Int,hargaSatuan: Int){
+    fun tambahMakananKeranjang(nama: String,gambar: String,hargaSatuan: Int){
         btnTambahKeranjang.setOnClickListener {
             keranjangViewModel.tambahMakananKeKeranjang(nama,gambar,hargaSatuan)
             keranjangViewModel.setHargaTotal()

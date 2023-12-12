@@ -56,7 +56,7 @@ class KeranjangViewModel : ViewModel() {
         _counter.value = 0
     }
 
-    fun tambahMakananKeKeranjang(namaMakanan: String,gambarMakanan: Int,hargaSatuan: Int){
+    fun tambahMakananKeKeranjang(namaMakanan: String,gambarMakanan: String,hargaSatuan: Int){
        listpesanan.add(
            Pesanan(
            namaMakanan, _harga.value!!,_counter.value!!,gambarMakanan,hargaSatuan
