@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import com.bumptech.glide.Glide
 import com.example.food_app_client.Model.ListLokal.listpesanan
 import com.example.food_app_client.R
 import com.example.food_app_client.ViewModel.KeranjangViewModel
@@ -22,6 +24,7 @@ class DetailFragment : Fragment() {
     lateinit var btnIncrement: ImageView
     lateinit var btnDecrement : ImageView
     lateinit var btnTambahKeranjang : ImageView
+    lateinit var gambarLandScape: ImageView
     lateinit var btnCancel : ImageView
     val keranjangViewModel : KeranjangViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +47,7 @@ class DetailFragment : Fragment() {
         tvCounter = view.findViewById(R.id.tvCounter)
         tvHarga = view.findViewById(R.id.tvhargaMakanan)
         btnIncrement = view.findViewById(R.id.btnIncrement)
+        gambarLandScape = view.findViewById(R.id.gambarMakananLandscapeDetail)
         btnDecrement = view.findViewById(R.id.btnDecremenet)
         btnTambahKeranjang = view.findViewById(R.id.btnTambahMakanan)
         btnCancel = view.findViewById(R.id.btnCancel)
@@ -58,7 +62,9 @@ class DetailFragment : Fragment() {
         val durasi = arguments?.getString("durasi")
         val populer = arguments?.getString("populer")
 
-        setCounter(harga!!)
+        Glide.with(requireContext()).load(gambar).centerCrop().placeholder(R.drawable.makanan).into(gambarLandScape)
+        setHarga(harga!!)
+        setCounter(harga)
         tambahMakananKeranjang(namaMakanan!!,gambar!!, harga)
 
 
@@ -67,6 +73,8 @@ class DetailFragment : Fragment() {
         tvDeskripsi.text = deskripsi
         tvLamaMemasak.text = durasi
         tvPopularitas.text = populer
+
+        backToKategori()
 
 
     }
@@ -100,6 +108,17 @@ class DetailFragment : Fragment() {
         btnTambahKeranjang.setOnClickListener {
             keranjangViewModel.tambahMakananKeKeranjang(nama,gambar,hargaSatuan)
             keranjangViewModel.setHargaTotal()
+            Toast.makeText(requireContext(), "Berhasil Menambahkan Makanan ke Keranjang", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun backToKategori(){
+        btnCancel.setOnClickListener {
+            val transaksi = requireActivity().supportFragmentManager.beginTransaction()
+            val toKategori = KategoriFragment()
+            transaksi.replace(R.id.fragmentContainerView2,toKategori)
+            transaksi.addToBackStack(null)
+            transaksi.commit()
         }
     }
 

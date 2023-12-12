@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import com.example.food_app_client.Model.ListLokal.listmakanan
 import com.example.food_app_client.Model.ModelClass.Menu
 import com.example.food_app_client.R
 import com.example.food_app_client.ViewModel.HomeViewModel
+import com.example.food_app_client.ViewModel.KeranjangViewModel
 import com.example.food_app_client.ViewModel.UserViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +36,9 @@ class HomeFragment : Fragment() {
     private lateinit var profileImage: ImageView
     private lateinit var konten1: ImageView
     private lateinit var konten2: ImageView
+    private lateinit var progressBar: ProgressBar
     private lateinit var firestore: FirebaseFirestore
+    private  val keranjangViewModel: KeranjangViewModel by activityViewModels()
     private  val homeViewModel: HomeViewModel by activityViewModels()
     private val userViewModel: UserViewModel by activityViewModels()
 
@@ -61,6 +65,7 @@ class HomeFragment : Fragment() {
         konten2 = view.findViewById(R.id.ivKonten2)
         firestore = FirebaseFirestore.getInstance()
         reycylerView = view.findViewById(R.id.recyclerMenuPopuler)
+        progressBar = view.findViewById(R.id.progressBarMenuPopuler)
         val namaUser = requireActivity().intent.getStringExtra("nama").toString()
         val alamatUser = requireActivity().intent.getStringExtra("alamat").toString()
         val noHpUSer = requireActivity().intent.getStringExtra("noHp").toString()
@@ -86,7 +91,10 @@ class HomeFragment : Fragment() {
 
         homeViewModel.listMenuPopuler.observe(viewLifecycleOwner){newValue ->
             reycylerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
-            reycylerView.adapter = AdapterMenuPopuler(newValue,requireContext())
+            reycylerView.adapter = AdapterMenuPopuler(newValue,requireContext(),requireActivity().supportFragmentManager,keranjangViewModel)
+            if (homeViewModel.listMenuPopuler.value!!.size != 0){
+                progressBar.visibility = View.GONE
+            }
 
 
         }

@@ -10,7 +10,7 @@ import com.example.food_app_client.Model.ModelClass.Counter
 import com.example.food_app_client.Model.ModelClass.Pesanan
 
 class KeranjangViewModel : ViewModel() {
-    private var _counter: MutableLiveData<Int> = MutableLiveData(0)
+    private var _counter: MutableLiveData<Int> = MutableLiveData(1)
     private var _harga : MutableLiveData<Int> = MutableLiveData(0)
     private var _listKeranjang : MutableLiveData<MutableList<Pesanan>> = MutableLiveData(listpesanan)
     private var _hargaTotal: MutableLiveData<Int> = MutableLiveData(0)
@@ -37,7 +37,7 @@ class KeranjangViewModel : ViewModel() {
     }
 
     fun Decrement(konteks : Context){
-        if (_counter.value!! <= 0){
+        if (_counter.value!! <= 1){
             _counter.value = _counter.value!! + 0
             Toast.makeText(konteks, "Tidak bisa mengurangi lagi ", Toast.LENGTH_SHORT).show()
         }else{
@@ -52,7 +52,8 @@ class KeranjangViewModel : ViewModel() {
     }
 
     fun resetCounter(){
-        _counter.value = 0
+        _counter.value = 1
+
     }
 
     fun tambahMakananKeKeranjang(namaMakanan: String,gambarMakanan: String,hargaSatuan: Int){

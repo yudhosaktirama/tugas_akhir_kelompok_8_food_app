@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,6 +43,7 @@ class ProfileFragment : Fragment() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var btnLogout : Button
+    private lateinit var progressCircle: ProgressBar
     private val userViewModel: UserViewModel by activityViewModels()
     private val statusViewModel: StatusViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,6 +71,7 @@ class ProfileFragment : Fragment() {
         tvEmail = view.findViewById(R.id.tvEmail)
         profile = view.findViewById(R.id.ivProfileProfile)
         btnLogout = view.findViewById(R.id.btnLogout)
+        progressCircle = view.findViewById(R.id.progressBarStatus)
         firebaseFirestore = FirebaseFirestore.getInstance()
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -88,6 +91,7 @@ class ProfileFragment : Fragment() {
             requireActivity().finish()
         }
 
+
     }
 
     fun setInformasi(tvnama: TextView,tvalamat: TextView,tvnoHp: TextView,tvtopNama: TextView,tvTopAlamat: TextView){
@@ -105,6 +109,9 @@ class ProfileFragment : Fragment() {
         statusViewModel.listStatusPesanan.observe(viewLifecycleOwner){newValue ->
             recyclerView.adapter = AdapterStatusPesanan(newValue, requireContext(),requireActivity().supportFragmentManager,statusViewModel)
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
+            if (statusViewModel.listStatusPesanan.value!!.size != 0){
+                progressCircle.visibility = View.GONE
+            }
         }
 
 

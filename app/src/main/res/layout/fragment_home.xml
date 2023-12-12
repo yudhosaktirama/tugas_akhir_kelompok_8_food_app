@@ -106,4 +106,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView10"
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/layout_menu_populer" />
+
+    <ProgressBar
+        android:id="@+id/progressBarMenuPopuler"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerMenuPopuler"
+        app:layout_constraintEnd_toEndOf="@+id/recyclerMenuPopuler"
+        app:layout_constraintStart_toStartOf="@+id/recyclerMenuPopuler"
+        app:layout_constraintTop_toTopOf="@+id/recyclerMenuPopuler" />
 </androidx.constraintlayout.widget.ConstraintLayout>

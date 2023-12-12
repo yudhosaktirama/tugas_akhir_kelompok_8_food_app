@@ -203,9 +203,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <ImageView
-        android:id="@+id/imageView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/gambarMakananLandscapeDetail"
+        android:layout_width="312dp"
+        android:layout_height="216dp"
         android:src="@drawable/gambar_nasi_uduk"
         app:layout_constraintBottom_toTopOf="@+id/imageView22"
         app:layout_constraintEnd_toEndOf="parent"
