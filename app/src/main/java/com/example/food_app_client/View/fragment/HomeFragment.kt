@@ -14,18 +14,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.food_app_client.Model.Adapter.AdapterMenuPopuler
 import com.example.food_app_client.Model.ListLokal.listmakanan
+import com.example.food_app_client.Model.ModelClass.Menu
 import com.example.food_app_client.R
+import com.example.food_app_client.ViewModel.HomeViewModel
 import com.example.food_app_client.ViewModel.UserViewModel
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 
 class HomeFragment : Fragment() {
-    lateinit var adapter: AdapterMenuPopuler
-    lateinit var reycylerView: RecyclerView
-    lateinit var tvNama: TextView
-    lateinit var tvAlamat: TextView
-    lateinit var profileImage: ImageView
-    lateinit var konten1: ImageView
-    lateinit var konten2: ImageView
+    private lateinit var adapter: AdapterMenuPopuler
+    private lateinit var reycylerView: RecyclerView
+    private lateinit var tvNama: TextView
+    private lateinit var tvAlamat: TextView
+    private lateinit var profileImage: ImageView
+    private lateinit var konten1: ImageView
+    private lateinit var konten2: ImageView
+    private lateinit var firestore: FirebaseFirestore
+    private  val homeViewModel: HomeViewModel by activityViewModels()
     private val userViewModel: UserViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +59,7 @@ class HomeFragment : Fragment() {
         profileImage = view.findViewById(R.id.ivprofile)
         konten1 = view.findViewById(R.id.ivKonten1)
         konten2 = view.findViewById(R.id.ivKonten2)
+        firestore = FirebaseFirestore.getInstance()
         reycylerView = view.findViewById(R.id.recyclerMenuPopuler)
         val namaUser = requireActivity().intent.getStringExtra("nama").toString()
         val alamatUser = requireActivity().intent.getStringExtra("alamat").toString()
@@ -69,11 +80,36 @@ class HomeFragment : Fragment() {
             tvAlamat.text = newValue
         }
 
-        reycylerView.adapter = AdapterMenuPopuler(listmakanan,requireContext())
-
-        reycylerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+        GlobalScope.launch { getDataMenuPopulerFirestore() }
 
 
+
+        homeViewModel.listMenuPopuler.observe(viewLifecycleOwner){newValue ->
+            reycylerView.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+            reycylerView.adapter = AdapterMenuPopuler(newValue,requireContext())
+
+
+        }
+
+    }
+
+    suspend fun getDataMenuPopulerFirestore(){
+        val database = firestore.collection("makanan").whereLessThan("harga",10000).get().await()
+        withContext(Dispatchers.IO){
+            database?.let { document ->
+                val listMakananPopuler = document.map {doc ->
+                    Menu(
+                        doc.getString("nama")?: "",
+                        doc.getString("deskripsi")?: "",
+                        doc.getString("lamaMemasak")?: "",
+                        (doc.get("harga") as? Number)?.toInt()?: 0,
+                        doc.getString("gambar")?: ""
+                    )
+                }
+                homeViewModel._listMenuPopuler.postValue(listMakananPopuler.toMutableList())
+
+            }
+        }
     }
 
 

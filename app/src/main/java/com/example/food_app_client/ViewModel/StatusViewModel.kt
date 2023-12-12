@@ -36,8 +36,9 @@ class StatusViewModel() : ViewModel() {
     }
 
     fun totalBiayaMakanan(list: List<Pesanan>){
+        _totalbayar.value = 0
         for (i in list){
-            _totalbayar.value = _totalbayar.value?.plus(i.harga)
+            _totalbayar.value = _totalbayar.value?.plus(i.jumlah*i.hargaSatuan)
         }
     }
 

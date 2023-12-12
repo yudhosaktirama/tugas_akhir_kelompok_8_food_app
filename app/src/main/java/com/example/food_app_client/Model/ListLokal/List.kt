@@ -43,6 +43,6 @@ val listpesanan: MutableList<Pesanan> = mutableListOf(
 
 val daftarPesanan: MutableList<Pesanan> = mutableListOf()
 
-val listCounter: MutableList<Counter> = mutableListOf()
+val test: MutableList<Menu> = mutableListOf()
 
 val listStatus: MutableList<Status> = mutableListOf()

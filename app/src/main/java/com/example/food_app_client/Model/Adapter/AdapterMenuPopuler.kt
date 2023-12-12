@@ -37,5 +37,7 @@ class AdapterMenuPopuler(val list: List<Menu>,val konteks: Context) : RecyclerVi
 
 
 
+
+
     }
 }

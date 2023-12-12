@@ -9,13 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.food_app_client.Model.ModelClass.Menu
 import com.example.food_app_client.R
 import com.example.food_app_client.View.fragment.DetailFragment
+import com.example.food_app_client.ViewModel.KeranjangViewModel
 
-class AdapterKategori (val listMenu: List<Menu>, val fragment: androidx.fragment.app.FragmentManager,val konteks: Context): RecyclerView.Adapter<AdapterKategori.KategoriViewHolder>() {
+class AdapterKategori (val listMenu: List<Menu>, val fragment: androidx.fragment.app.FragmentManager,val konteks: Context,val viewmodel : KeranjangViewModel): RecyclerView.Adapter<AdapterKategori.KategoriViewHolder>() {
 
     class KategoriViewHolder(row: View): RecyclerView.ViewHolder(row){
         val gambar = row.findViewById<ImageView>(R.id.iconMakanan)
@@ -53,6 +55,11 @@ class AdapterKategori (val listMenu: List<Menu>, val fragment: androidx.fragment
             transaksi.replace(R.id.fragmentContainerView2,fragmentDetail)
             transaksi.addToBackStack(null)
             transaksi.commit()
+        }
+        holder.btnAdd.setOnClickListener {
+            viewmodel.addSingleFoodTOChart(binding.namaMakanan,binding.gambar,binding.harga)
+            viewmodel.setHargaTotal()
+            Toast.makeText(konteks, "Berhasil Menambahkan ${binding.namaMakanan} ke keranjang", Toast.LENGTH_SHORT).show()
         }
     }
 }

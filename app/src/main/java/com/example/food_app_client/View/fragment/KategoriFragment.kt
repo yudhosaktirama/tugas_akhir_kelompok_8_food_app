@@ -17,6 +17,7 @@ import com.example.food_app_client.Model.ListLokal.listmakanan
 import com.example.food_app_client.Model.ListLokal.listminuman
 import com.example.food_app_client.R
 import com.example.food_app_client.ViewModel.KategoriViewModel
+import com.example.food_app_client.ViewModel.KeranjangViewModel
 import com.example.food_app_client.ViewModel.UserViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.*
@@ -34,6 +35,7 @@ class KategoriFragment : Fragment() {
     lateinit var  firestore: FirebaseFirestore
     val userViewModel : UserViewModel by activityViewModels()
     val kategoriViewModel : KategoriViewModel by  activityViewModels()
+    val keranjangViewModel: KeranjangViewModel by activityViewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -102,7 +104,7 @@ class KategoriFragment : Fragment() {
 
     fun pantauPerubahanList(){
         kategoriViewModel.listMakananku.observe(viewLifecycleOwner){newValue ->
-            recylerKategori.adapter = AdapterKategori(newValue,requireActivity().supportFragmentManager,requireContext())
+            recylerKategori.adapter = AdapterKategori(newValue,requireActivity().supportFragmentManager,requireContext(),keranjangViewModel)
             recylerKategori.layoutManager = LinearLayoutManager(requireContext())
         }
     }
