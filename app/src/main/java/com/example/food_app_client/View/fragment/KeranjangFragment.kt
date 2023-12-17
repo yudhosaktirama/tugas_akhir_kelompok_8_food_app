@@ -37,6 +37,7 @@ class KeranjangFragment : Fragment() {
     private lateinit var tvBiayaAntar: TextView
     private lateinit var tvTotalBiaya: TextView
     private lateinit var profile: ImageView
+    private lateinit var btnClearKeranjang: ImageView
     private lateinit var btnCheckout: ImageView
     private lateinit var firestore: FirebaseFirestore
     private lateinit var firebaseAuth: FirebaseAuth
@@ -64,6 +65,7 @@ class KeranjangFragment : Fragment() {
         btnCheckout = view.findViewById(R.id.ivCheckout)
         recyclerView = view.findViewById(R.id.rvMenuPemesanan)
         profile = view.findViewById(R.id.ivProfileKeranjang)
+        btnClearKeranjang = view.findViewById(R.id.btnClearKeranjang)
         firestore = FirebaseFirestore.getInstance()
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -83,6 +85,12 @@ class KeranjangFragment : Fragment() {
 
         btnCheckout.setOnClickListener {
             addToFirestoreDatabase(requireContext())
+        }
+
+        btnClearKeranjang.setOnClickListener {
+            ClearKeranjang()
+            setKeranjang()
+
         }
 
 
@@ -124,6 +132,10 @@ class KeranjangFragment : Fragment() {
             keranjangViewModel.ClearList()
             setKeranjang()
         }
+    }
+
+    fun ClearKeranjang (){
+        keranjangViewModel.ClearList()
     }
 
 

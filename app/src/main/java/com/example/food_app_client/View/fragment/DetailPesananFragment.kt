@@ -66,7 +66,6 @@ class DetailPesananFragment : Fragment() {
             val transaksi = requireActivity().supportFragmentManager.beginTransaction()
             val toStatus = ProfileFragment()
             transaksi.replace(R.id.fragmentContainerView2,toStatus)
-            transaksi.addToBackStack(null)
             transaksi.commit()
         }
 
